@@ -37,6 +37,7 @@
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
 
+
 <!-- Bootstrap DataTables -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -63,7 +64,7 @@
 		<!-- Page Content -->
 
 		<div class="content">
-		
+
 			<!-- Loading the home content -->
 			<c:if test="${userClickHome == true }">
 				<%@include file="home.jsp"%>
@@ -78,13 +79,22 @@
 			<c:if test="${userClickContact == true }">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
 			<!-- Load only when user clicks contact -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
 
+			<!-- Load only when user clicks show product -->
+			<c:if test="${userClickShowProduct == true }">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+
 		</div>
+
+
+
 
 		<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
@@ -94,6 +104,12 @@
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
+
+		<!-- DataTable Plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
 
 		<!-- Self Coded JavaScript -->
 		<script src="${js}/myapp.js"></script>
